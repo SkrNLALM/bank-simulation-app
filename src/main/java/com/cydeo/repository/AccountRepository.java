@@ -1,5 +1,6 @@
 package com.cydeo.repository;
 
+import com.cydeo.exception.RecordNotFoundException;
 import com.cydeo.model.Account;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +25,7 @@ public class AccountRepository {
 
         //write a method, that find the account inside the list, if not
         //throws
-        return null;
-      //  return  accountList.stream().
+       return  accountList.stream().filter(account -> account.getId().equals(id))
+               .findAny().orElseThrow(()-> new RecordNotFoundException("Account not exist in the database"));
     }
 }
