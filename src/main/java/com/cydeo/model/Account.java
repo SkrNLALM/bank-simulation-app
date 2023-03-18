@@ -15,7 +15,7 @@ public class Account {
     private UUID id;    //account number
     private BigDecimal balance;   //for bank app big decimal is safe
     private AccountType accountType;
-    private Date date;
+    private Date creationDate;
     private  Long userId;
     private AccountStatus accountStatus;
 

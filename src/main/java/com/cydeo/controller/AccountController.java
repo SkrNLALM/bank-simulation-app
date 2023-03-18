@@ -23,4 +23,19 @@ public class AccountController {
         model.addAttribute("accountList", accountService.listAllAccounts());
                 return "account/index";
     }
+
+    @GetMapping("/create-form")
+    public String getCreateForm (Model model){
+
+        model.addAttribute("accountList", accountService.listAllAccounts());
+
+        //empty account object provided
+        //account type enum needs to fill dropdown
+
+        return "account/create-account";
+    }
+
+    //create method to capture information from UI
+    //print them on the console
+    //trigger createAccount method, create the account based on user input
 }
