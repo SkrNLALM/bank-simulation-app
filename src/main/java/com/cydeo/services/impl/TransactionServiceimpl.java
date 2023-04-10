@@ -123,4 +123,9 @@ public class TransactionServiceimpl implements TransactionService {
       //  we want last 10 transactions
         return transactionRepository.findLast10Transactions();
     }
+
+    @Override
+    public List<Transaction> findTransactionListById(UUID id) {
+        return transactionRepository.findTransactionListById(id);
+    }
 }

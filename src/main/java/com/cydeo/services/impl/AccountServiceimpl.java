@@ -62,5 +62,6 @@ public class AccountServiceimpl implements AccountService {
     public Account retrieveById(UUID id) {
         return accountRepository.findById(id);
     }
+
 }
 

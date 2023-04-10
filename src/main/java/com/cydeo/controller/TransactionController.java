@@ -9,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Controller
 public class TransactionController {
@@ -53,5 +55,23 @@ public class TransactionController {
 
         return "redirect:/make-transfer";
     }
-    //complete the make transfer and return sma page
+    //write a method, that gets the account id from index.html and print on the console
+    //(work on index.html and here)
+    //transaction/{id}
+    //return transaction
+
+    @GetMapping("/transaction/{id}")
+    public String getTransactionList(@PathVariable("id") UUID id, Model model){
+        //get the list of transactions based on id and return as a model attribute
+        //TASK-Complete the method (Service and repository)
+        //findTranscationById
+        model.addAttribute("transactions", transactionService.findTransactionListById(id));
+
+
+
+        System.out.println(id);
+        return "/transaction/transactions";
+
+    }
+
 }
